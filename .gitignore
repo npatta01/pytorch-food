@@ -47,7 +47,7 @@ Carthage/Build
 .idea
 
 android/app/src/main/assets/model.pt
-
+ios/HelloWorld/model/model.pt
 
 
 ## macOS

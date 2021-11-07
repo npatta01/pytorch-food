@@ -20,8 +20,19 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.util.AbstractMap;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
 
 import androidx.appcompat.app.AppCompatActivity;
+import android.widget.ListView;
+import android.widget.ArrayAdapter;
+import java.util.AbstractMap.SimpleEntry;
 
 public class MainActivity extends AppCompatActivity {
 //
@@ -71,21 +82,33 @@ public class MainActivity extends AppCompatActivity {
     // getting tensor content as java array of floats
     final float[] scores = outputTensor.getDataAsFloatArray();
 
-    // searching for the index with maximum score
-    float maxScore = -Float.MAX_VALUE;
-    int maxScoreIdx = -1;
-    for (int i = 0; i < scores.length; i++) {
-      if (scores[i] > maxScore) {
-        maxScore = scores[i];
-        maxScoreIdx = i;
-      }
+    ArrayList<Map.Entry<String, Float>> predictions = new ArrayList<>();
+    for (int k = 0; k < scores.length; k++) {
+      Map.Entry<String, Float> entry = new AbstractMap.SimpleEntry<String, Float>(modelClasses[k], scores[k]);
+      predictions.add(entry);
+
     }
 
-    String className = modelClasses[maxScoreIdx];
+    Collections.sort(predictions, new Comparator<Map.Entry<String, Float>>() {
+      @Override
+      public int compare(
+              Map.Entry<String, Float> e1,
+              Map.Entry<String, Float> e2) {
+        return e2.getValue().compareTo(e1.getValue());
+      }
+    });
 
-    // showing className on UI
-    TextView textView = findViewById(R.id.text);
-    textView.setText(className);
+    ListView listView=(ListView)findViewById(R.id.listView);
+    String[] listItem = new String[]{"milk","apple"};
+    listItem[0] = predictions.get(0).getKey();
+    listItem[1] = predictions.get(1).getKey();
+
+
+
+    final ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
+            android.R.layout.simple_list_item_1, android.R.id.text1, listItem);
+    listView.setAdapter(adapter);
+
   }
 
   /**

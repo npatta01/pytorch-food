@@ -32,3 +32,7 @@ This project uses the [Food-101](https://data.vision.ee.ethz.ch/cvl/datasets_ext
 
 
 ## References
+
+The android and ios code was forked from the very helpful examples provided by the Pytorch Team.
+[IOS](https://github.com/pytorch/ios-demo-app)
+[Android](https://github.com/pytorch/android-demo-app)

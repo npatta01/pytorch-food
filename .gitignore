@@ -88,3 +88,14 @@ Podfile.lock
 # Carthage
 Carthage/Checkouts
 Carthage/Build
+
+
+.ipynb_checkpoints
+__pycache__/
+.zip
+../artifacts.zip
+wandb/
+artifacts.zip
+.zip
+notebooks/.ipynb_checkpoints/
+.ipynb_checkpoints

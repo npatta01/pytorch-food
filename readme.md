@@ -36,3 +36,13 @@ This project uses the [Food-101](https://data.vision.ee.ethz.ch/cvl/datasets_ext
 The android and ios code was forked from the very helpful examples provided by the Pytorch Team.
 [IOS](https://github.com/pytorch/ios-demo-app)
 [Android](https://github.com/pytorch/android-demo-app)
+
+
+
+## Notes
+
+```
+cd notebooks
+papermill -p model resnet34 01_training.ipynb 01_training__output.ipynb -k python3
+
+```

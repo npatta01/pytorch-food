@@ -8,4 +8,20 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <!-- Style for header text in the order form -->
+    <style name="HeaderTextStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">48dp</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textSize">30sp</item>
+    </style>
+
+    <style name="TimingTextStyle">
+        <item name="android:textSize">20sp</item>
+
+        <item name="android:layout_width">wrap_content</item>
+
+    </style>
+
 </resources>

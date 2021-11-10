@@ -1,35 +1,96 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/scrollLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:fillViewport="true"
+    android:orientation="vertical">
 
-<!--    <TextView-->
-<!--        android:id="@+id/text"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_gravity="bottom"-->
-<!--        android:background="#80000000"-->
-<!--        android:textColor="@android:color/white"-->
-<!--        android:textSize="18sp" />-->
 
-    <ImageView
-        android:id="@+id/image"
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="400dp"
-        android:layout_gravity="center|top"
-        android:scaleType="fitCenter" />
+        android:layout_height="wrap_content"
+        tools:context=".MainActivity">
 
-    <ListView
-        android:id="@+id/listView"
-        android:layout_width="match_parent"
-        android:layout_gravity="center|bottom"
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <!--    <TextView-->
+            <!--        android:id="@+id/text"-->
+            <!--        android:layout_width="match_parent"-->
+            <!--        android:layout_height="wrap_content"-->
+            <!--        android:layout_gravity="bottom"-->
+            <!--        android:background="#80000000"-->
+            <!--        android:textColor="@android:color/white"-->
+            <!--        android:textSize="18sp" />-->
 
-        android:layout_height="150dp"
-        android:minHeight="200dp">
+
+            <ImageButton
+                android:id="@+id/btn_picture"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_alignWithParentIfMissing="false"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="50dp"
+                android:elevation="0dp"
+                android:src="@android:drawable/ic_menu_camera"
+                android:onClick="processAction"
+                />
+
+            <ImageView
+                android:id="@+id/image"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:layout_gravity="center|top"
+                android:layout_marginTop="30dp"
+                android:layout_below="@+id/btn_picture"
+                android:scaleType="fitCenter" />
+
+            <TextView
+                android:id="@+id/predictionHeader"
+                style="@style/HeaderTextStyle"
+                android:layout_height="match_parent"
+                android:layout_width="match_parent"
+                android:layout_below="@+id/image"
+                android:layout_centerInParent="true"
+                android:layout_marginTop="30dp"
+                android:textAlignment="center"
+                android:text="@string/predictionsText" />
 
 
-    </ListView>
+            <ListView
+                android:id="@+id/predictionListView"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_below="@+id/predictionHeader"
+                android:layout_gravity="center|bottom"
+                android:minHeight="200dp">
+            </ListView>
 
-</FrameLayout>
+            <TextView
+                android:id="@+id/timingHeader"
+                style="@style/HeaderTextStyle"
+                android:layout_height="match_parent"
+                android:layout_width="match_parent"
+                android:layout_below="@+id/predictionListView"
+                android:layout_centerInParent="true"
+                android:layout_marginTop="30dp"
+                android:textAlignment="center"
+                android:text="@string/timingHeader" />
+
+            <TextView
+                android:id="@+id/timingContent"
+                android:layout_height="match_parent"
+                android:layout_width="match_parent"
+                android:layout_below="@+id/timingHeader"
+                android:layout_centerInParent="true"
+                android:layout_marginTop="30dp"
+                android:textAlignment="center"
+                style="@style/TimingTextStyle"
+                android:text="" />
+
+        </RelativeLayout>
+    </FrameLayout>
+</ScrollView>

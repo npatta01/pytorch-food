@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Food Classifier</string>
+    <string name="predictionsText">Predictions</string>
+    <string name="timingHeader">Timing</string>
 </resources>

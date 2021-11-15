@@ -1,0 +1,76 @@
+[0;31mSignature:[0m
+[0mflash[0m[0;34m.[0m[0mimage[0m[0;34m.[0m[0mImageClassifier[0m[0;34m.[0m[0mload_from_checkpoint[0m[0;34m([0m[0;34m[0m
+[0;34m[0m    [0mcheckpoint_path[0m[0;34m:[0m [0mUnion[0m[0;34m[[0m[0mstr[0m[0;34m,[0m [0mIO[0m[0;34m][0m[0;34m,[0m[0;34m[0m
+[0;34m[0m    [0mmap_location[0m[0;34m:[0m [0mUnion[0m[0;34m[[0m[0mDict[0m[0;34m[[0m[0mstr[0m[0;34m,[0m [0mstr[0m[0;34m][0m[0;34m,[0m [0mstr[0m[0;34m,[0m [0mtorch[0m[0;34m.[0m[0mdevice[0m[0;34m,[0m [0mint[0m[0;34m,[0m [0mCallable[0m[0;34m,[0m [0mNoneType[0m[0;34m][0m [0;34m=[0m [0;32mNone[0m[0;34m,[0m[0;34m[0m
+[0;34m[0m    [0mhparams_file[0m[0;34m:[0m [0mUnion[0m[0;34m[[0m[0mstr[0m[0;34m,[0m [0mNoneType[0m[0;34m][0m [0;34m=[0m [0;32mNone[0m[0;34m,[0m[0;34m[0m
+[0;34m[0m    [0mstrict[0m[0;34m:[0m [0mbool[0m [0;34m=[0m [0;32mTrue[0m[0;34m,[0m[0;34m[0m
+[0;34m[0m    [0;34m**[0m[0mkwargs[0m[0;34m,[0m[0;34m[0m
+[0;34m[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;31mDocstring:[0m
+Primary way of loading a model from a checkpoint. When Lightning saves a checkpoint
+it stores the arguments passed to `__init__`  in the checkpoint under `hyper_parameters`
+
+Any arguments specified through \*args and \*\*kwargs will override args stored in `hyper_parameters`.
+
+Args:
+    checkpoint_path: Path to checkpoint. This can also be a URL, or file-like object
+    map_location:
+        If your checkpoint saved a GPU model and you now load on CPUs
+        or a different number of GPUs, use this to map to the new setup.
+        The behaviour is the same as in :func:`torch.load`.
+    hparams_file: Optional path to a .yaml file with hierarchical structure
+        as in this example::
+
+            drop_prob: 0.2
+            dataloader:
+                batch_size: 32
+
+        You most likely won't need this since Lightning will always save the hyperparameters
+        to the checkpoint.
+        However, if your checkpoint weights don't have the hyperparameters saved,
+        use this method to pass in a .yaml file with the hparams you'd like to use.
+        These will be converted into a :class:`~dict` and passed into your
+        :class:`LightningModule` for use.
+
+        If your model's `hparams` argument is :class:`~argparse.Namespace`
+        and .yaml file has hierarchical structure, you need to refactor your model to treat
+        `hparams` as :class:`~dict`.
+    strict: Whether to strictly enforce that the keys in :attr:`checkpoint_path` match the keys
+        returned by this module's state dict. Default: `True`.
+    kwargs: Any extra keyword args needed to init the model. Can also be used to override saved
+        hyperparameter values.
+
+Return:
+    :class:`LightningModule` with loaded weights and hyperparameters (if available).
+
+Example::
+
+    # load weights without mapping ...
+    MyLightningModule.load_from_checkpoint('path/to/checkpoint.ckpt')
+
+    # or load weights mapping all weights from GPU 1 to GPU 0 ...
+    map_location = {'cuda:1':'cuda:0'}
+    MyLightningModule.load_from_checkpoint(
+        'path/to/checkpoint.ckpt',
+        map_location=map_location
+    )
+
+    # or load weights and hyperparameters from separate files.
+    MyLightningModule.load_from_checkpoint(
+        'path/to/checkpoint.ckpt',
+        hparams_file='/path/to/hparams_file.yaml'
+    )
+
+    # override some of the params with new values
+    MyLightningModule.load_from_checkpoint(
+        PATH,
+        num_layers=128,
+        pretrained_ckpt_path=NEW_PATH,
+    )
+
+    # predict
+    pretrained_model.eval()
+    pretrained_model.freeze()
+    y_hat = pretrained_model(x)
+[0;31mFile:[0m      /opt/conda/envs/pt/lib/python3.8/site-packages/pytorch_lightning/core/saving.py
+[0;31mType:[0m      method

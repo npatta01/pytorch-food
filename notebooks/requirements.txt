@@ -1,0 +1,9 @@
+ipympl==0.8.2
+lightning-flash==0.5.2
+fiftyone==0.14.0
+torchvision==0.11.1
+lightning-flash[image]==0.5.2
+wandb==0.12.6
+papermill==2.3.3
+torchinfo==1.5.3
+pyarrow==6.0.0

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0CBBCE5EEF88B8EE73633F7C /* libPods-HelloWorld.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CC56BE85B29C6073E112AB2 /* libPods-HelloWorld.a */; };
+		6E7BC9CF273BFAFB007D2814 /* model_food.pt in Resources */ = {isa = PBXBuildFile; fileRef = 6E7BC9CE273BFAFB007D2814 /* model_food.pt */; };
 		6EF5AA4F26EED89400C477F4 /* image.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6EF5AA4E26EED89400C477F4 /* image.jpg */; };
 		A07753C62343DDEE00186969 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07753C52343DDEE00186969 /* AppDelegate.swift */; };
 		A07753CA2343DDEE00186969 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07753C92343DDEE00186969 /* ViewController.swift */; };
@@ -22,6 +23,7 @@
 
 /* Begin PBXFileReference section */
 		0CC56BE85B29C6073E112AB2 /* libPods-HelloWorld.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HelloWorld.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6E7BC9CE273BFAFB007D2814 /* model_food.pt */ = {isa = PBXFileReference; lastKnownFileType = file; path = model_food.pt; sourceTree = "<group>"; };
 		6EF5AA4E26EED89400C477F4 /* image.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image.jpg; sourceTree = "<group>"; };
 		74AB596B8C35969B495DDB9F /* Pods-HelloWorld.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HelloWorld.release.xcconfig"; path = "Target Support Files/Pods-HelloWorld/Pods-HelloWorld.release.xcconfig"; sourceTree = "<group>"; };
 		A07753C22343DDEE00186969 /* HelloWorld.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HelloWorld.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -34,7 +36,7 @@
 		A07753DA2343F15B00186969 /* HelloWorld-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HelloWorld-Bridging-Header.h"; sourceTree = "<group>"; };
 		A07753DB2343F15B00186969 /* TorchModule.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TorchModule.mm; sourceTree = "<group>"; };
 		A07753DC2343F15B00186969 /* TorchModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TorchModule.h; sourceTree = "<group>"; };
-		A07753E12343F9AD00186969 /* model.pt */ = {isa = PBXFileReference; lastKnownFileType = file; path = model.pt; sourceTree = "<group>"; };
+		A07753E12343F9AD00186969 /* model.pt */ = {isa = PBXFileReference; lastKnownFileType = file; name = model.pt; path = HelloWorld/model/model.pt; sourceTree = SOURCE_ROOT; };
 		A07753E22343F9AD00186969 /* words.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = words.txt; sourceTree = "<group>"; };
 		A07753E92343FDEC00186969 /* UIImage+Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Helper.swift"; sourceTree = "<group>"; };
 		BF1598BCB746EFAE0CB16F13 /* Pods-HelloWorld.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HelloWorld.debug.xcconfig"; path = "Target Support Files/Pods-HelloWorld/Pods-HelloWorld.debug.xcconfig"; sourceTree = "<group>"; };
@@ -100,6 +102,7 @@
 		A07753E02343F9AD00186969 /* model */ = {
 			isa = PBXGroup;
 			children = (
+				6E7BC9CE273BFAFB007D2814 /* model_food.pt */,
 				A07753E12343F9AD00186969 /* model.pt */,
 				A07753E22343F9AD00186969 /* words.txt */,
 			);
@@ -188,6 +191,7 @@
 				A07753CD2343DDEE00186969 /* Main.storyboard in Resources */,
 				A07753E42343F9AD00186969 /* words.txt in Resources */,
 				6EF5AA4F26EED89400C477F4 /* image.jpg in Resources */,
+				6E7BC9CF273BFAFB007D2814 /* model_food.pt in Resources */,
 				A07753E32343F9AD00186969 /* model.pt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

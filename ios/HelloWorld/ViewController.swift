@@ -4,11 +4,14 @@ class ViewController: UIViewController {
     @IBOutlet var imageView: UIImageView!
     @IBOutlet var resultView: UITextView!
     private lazy var module: TorchModule = {
-        if let filePath = Bundle.main.path(forResource: "model", ofType: "pt"),
+        let filePath2 = Bundle.main.path(forResource: "model_food", ofType: "pt")!;
+        let module = TorchModule(fileAtPath: filePath2) ;
+        
+        if let filePath = Bundle.main.path(forResource: "model_food", ofType: "pt"),
             let module = TorchModule(fileAtPath: filePath) {
             return module
         } else {
-            fatalError("Can't find the model file!")
+            fatalError("Can't find the model file model_food!")
         }
     }()
 
